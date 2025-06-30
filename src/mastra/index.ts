@@ -1,13 +1,12 @@
 import { Mastra } from '@mastra/core/mastra';
 import { PinoLogger } from '@mastra/loggers';
-import { weatherWorkflow } from './workflows';
-import { weatherAgent } from './agents';
+import { weatherWorkflow, webSearchWorkflow } from './workflows';
+import { searchAgent } from './agents';
 
 export const mastra = new Mastra({
-  workflows: { weatherWorkflow },
-  agents: { weatherAgent },
+  workflows: { weatherWorkflow, webSearchWorkflow },
   logger: new PinoLogger({
     name: 'Mastra',
-    level: 'info',
+    level: 'debug', // Enable verbose logging
   }),
 });
